@@ -15,7 +15,7 @@ localhost:81/display に対してGETリクエストを送ると、HTMLでデー�
 
 ## 起動方法
 ```shell
-make up
+make setup
 ```
 
 ## TODO
