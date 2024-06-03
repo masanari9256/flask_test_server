@@ -1,5 +1,6 @@
 # Flaskで作成したテストサーバ
 
+## 概要
 localhost:81/test に対してGETリクエストを送ると、疎通確認ができる  
 ```shell
 curl -X GET http://localhost:81/test
@@ -11,6 +12,11 @@ curl -X POST http://localhost:81/test -H "Content-Type: application/json" -d '{"
 localhost:81/display に対してGETリクエストを送ると、HTMLでデータを確認できる
 
 [http://localhost:81/display](http://localhost:81/display)
+
+## 起動方法
+```shell
+make up
+```
 
 ## TODO
 - コンテナが落ちたときの対策をしていない
