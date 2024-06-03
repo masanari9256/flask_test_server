@@ -21,7 +21,7 @@ def test_response():
 def test_request():
     global last_request_data
     last_request_data = {
-        "1 comment": "これはテストサーバです。",
+        "1 comment": "これはテストサーバです",
         "method": request.method,
         "headers": dict(request.headers),
         "form": request.form.to_dict(),

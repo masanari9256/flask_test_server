@@ -5,7 +5,7 @@
     <title>Request Data</title>
     <style>
         body { font-family: Arial, sans-serif; }
-        table { width: 100%; border-collapse: collapse; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
         th, td { border: 1px solid #ddd; padding: 8px; }
         th { background-color: #f2f2f2; }
     </style>
@@ -13,16 +13,29 @@
 <body>
     <h1>Request Data</h1>
     <p>{{ data["1 comment"] }}</p>
+    <h2>Method</h2>
+    <p>{{ data["method"] }}</p>
+    <h2>Headers</h2>
     <table>
         <tr><th>Key</th><th>Value</th></tr>
-        {% for key, value in data.items() %}
-            {% if key != "1 comment" %}
-                <tr>
-                    <td>{{ key }}</td>
-                    <td>{{ value }}</td>
-                </tr>
-            {% endif %}
+        {% for key, value in data["headers"].items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
         {% endfor %}
     </table>
+    <h2>Form Data</h2>
+    <table>
+        <tr><th>Key</th><th>Value</th></tr>
+        {% for key, value in data["form"].items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <h2>JSON Data</h2>
+    <pre>{{ data["json"] | tojson }}</pre>
 </body>
 </html>
