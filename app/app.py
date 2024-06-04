@@ -5,6 +5,7 @@ app.json.ensure_ascii = False
 
 last_request_data = {}
 
+
 @app.route("/test", methods=["GET"])
 def test_response():
     response_data = {
@@ -13,9 +14,9 @@ def test_response():
         "headers": dict(request.headers),
         "form": request.form.to_dict(),
         "json": request.get_json(silent=True)
-
     }
     return jsonify(response_data), 200
+
 
 @app.route("/test", methods=["POST"])
 def test_request():
@@ -26,13 +27,14 @@ def test_request():
         "headers": dict(request.headers),
         "form": request.form.to_dict(),
         "json": request.get_json(silent=True)
-
     }
     return jsonify(last_request_data), 200
+
 
 @app.route("/display", methods=["GET"])
 def display_html():
     return render_template("display.html", data=last_request_data)
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5001)
