@@ -19,7 +19,7 @@ make setup
 ```
 
 ## システム構成構成
-Python 3.11.7
+Python 3.11.7  
 Flask 3.0.3
 
 
