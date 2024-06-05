@@ -3,13 +3,22 @@ from flask import Flask, request, jsonify, render_template
 app = Flask(__name__)
 app.json.ensure_ascii = False
 
-last_request_data = {}
+# last_request_data = {}
+last_request_data = {
+    "comment": "/test にGETリクエストを送ることで、疎通確認ができます。\n"
+               "/test にPOSTリクエストを送ることで、リクエスト内容を表示できます。\n"
+               "詳しくはREADMEを確認してください。",
+    "method": "なし",
+    "headers": {},
+    "form": {},
+    "json": None
+}
 
 
 @app.route("/test", methods=["GET"])
 def test_response():
     response_data = {
-        "1 comment": "テストサーバ 疎通確認",
+        "comment": "テストサーバ 疎通確認",
         "method": request.method,
         "headers": dict(request.headers),
         "form": request.form.to_dict(),
@@ -22,7 +31,7 @@ def test_response():
 def test_request():
     global last_request_data
     last_request_data = {
-        "1 comment": "これはテストサーバです",
+        "comment": "これはテストサーバです",
         "method": request.method,
         "headers": dict(request.headers),
         "form": request.form.to_dict(),
