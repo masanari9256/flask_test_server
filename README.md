@@ -18,6 +18,11 @@ localhost:81/display に対してGETリクエストを送ると、HTMLでデー�
 make setup
 ```
 
+## システム構成構成
+Python 3.11.7
+Flask 3.0.3
+
+
 ## TODO
 - コンテナが落ちたときの対策をしていない
 - ポートをenvに逃がす
